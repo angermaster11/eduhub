@@ -100,35 +100,36 @@ const UserAvatar = ({ userProfile, onAuthClick, onAdminNavigate }) => {
     return (
       <button
         onClick={() => onAuthClick("login")}
-        className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+        className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm sm:text-base hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-md sm:shadow-lg"
       >
-        <FaUser className="text-sm" />
-        Login / Sign up
+        <FaUser className="text-sm sm:text-base" />
+        <span className="hidden sm:inline">Login / Sign up</span>
       </button>
     );
   }
 
   return (
-    <div className="flex items-center gap-4">
-      {userProfile.role === "admin" ? (
+    <div className="flex items-center gap-2 sm:gap-4 flex-wrap sm:flex-nowrap">
+      {userProfile.role === "admin" && (
         <button
           onClick={onAdminNavigate}
-          className="flex items-center gap-2 bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-900 transition-all duration-200 shadow-lg hover:shadow-xl"
+          className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-800 text-white text-sm sm:text-base hover:bg-gray-900 transition-all duration-200 shadow-md sm:shadow-lg"
         >
-          <FaPlus className="text-sm" />
-          Admin Dashboard
+          <FaPlus className="text-sm sm:text-base" />
+          <span className="hidden sm:inline">Admin Dashboard</span>
         </button>
-      ) : null}
-      
-      <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-gray-200 shadow-sm">
-        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-semibold">
+      )}
+
+      <div className="flex items-center gap-2 sm:gap-3 bg-white/80 backdrop-blur-sm px-3 py-1 sm:px-4 sm:py-2 rounded-xl border border-gray-200 shadow-sm text-sm sm:text-base">
+        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-semibold text-sm sm:text-base">
           {userProfile.name?.[0]?.toUpperCase() || <FaUser />}
         </div>
-        <span className="text-gray-700 font-medium">{userProfile.name}</span>
+        <span className="truncate max-w-[60px] sm:max-w-[150px]">{userProfile.name}</span>
       </div>
     </div>
   );
 };
+
 
 const ContentIcon = ({ type }) => {
   const icons = {
