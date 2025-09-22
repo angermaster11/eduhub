@@ -426,7 +426,7 @@ export default function Home({ onAuthClick }) {
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 mt-16">
         <div className="max-w-7xl mx-auto px-6 py-8 text-center text-gray-600">
-          <p>© 2024 EduHub. All rights reserved. Empowering learners worldwide.</p>
+          <p>© 2025 EduHub. All rights reserved. Empowering learners worldwide.</p>
         </div>
       </footer>
     </div>
